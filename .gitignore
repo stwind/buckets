@@ -8,3 +8,4 @@ node_modules
 tmp
 docs/api
 builds
+config/config.json
