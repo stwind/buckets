@@ -1,4 +1,5 @@
 express = require 'express'
+cors = require 'cors'
 
 Bucket = require '../../models/bucket'
 Entry = require '../../models/entry'
@@ -74,7 +75,7 @@ app.route '/entries'
           entry.populate 'bucket author', ->
             res.status(200).send entry
 
-  .get (req, res) ->
+  .get cors(), (req, res) ->
     Entry.findByParams req.query, (err, entries) ->
       res.status(200).send entries
 
